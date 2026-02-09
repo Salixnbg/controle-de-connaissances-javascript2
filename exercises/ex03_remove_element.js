@@ -8,8 +8,18 @@ Les k premiers éléments de nums doivent être ceux conservés.
 */
 
 function removeElement(nums, val) {
-  // TODO : écrire ton code ici
+  let k = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[k] = nums[i];
+      k++;
+    }
+  }
+
+  return k;
 }
+
 
 // --------------------
 // Tests (au moins 3)
