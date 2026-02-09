@@ -11,8 +11,35 @@ Rappel :
 */
 
 function findMedianSortedArrays(nums1, nums2) {
-  // TODO : écrire ton code ici
+  let i = 0;
+  let j = 0;
+  let previous = 0;
+  let current = 0;
+
+  let totalLength = nums1.length + nums2.length;
+  let middleIndex = Math.floor(totalLength / 2);
+
+  for (let count = 0; count <= middleIndex; count++) {
+    previous = current;
+
+    if (i < nums1.length && (j >= nums2.length || nums1[i] < nums2[j])) {
+      current = nums1[i];
+      i++;
+    } else {
+      current = nums2[j];
+      j++;
+    }
+  }
+
+  // Total impair
+  if (totalLength % 2 !== 0) {
+    return current;
+  }
+
+  // Total pair
+  return (previous + current) / 2;
 }
+
 
 // --------------------
 // Tests (au moins 3)
